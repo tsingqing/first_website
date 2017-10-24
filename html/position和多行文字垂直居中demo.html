@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>position practice</title>
+<style type="text/css">
+*{
+margin:0;
+padding:0;
+}/*浏览器自带的margin和padding必须消除，否则会有十个像素*/
+.box{
+    border:1px solid green;
+	width:200px;
+	height:200px;
+}
+.one{
+    background-color:red;
+
+	position:fixed;;
+	left:600px;
+	top:200px;
+}
+/*relative 相对于原始位置，原始位置依然在文档流中占据位置*/
+.two{
+    background-color:green;
+	position:relative;
+	left:600px;
+	top:0px;
+}
+/*absolute脱离原始文档流，相对于父元素最近的非static定位，position默认属性是static，若没有则相对于HTML定位*/
+/*absolute和多行文字垂直居中方法display：table；不能同时用。absolute会将其设为block，而上述方式时借助设为table后运用vertical-align*/
+.three{
+    background-color:yellow;
+	position:absolute;
+	left:250px;
+	top:0px;
+}
+.four{
+   background-color:blue;  
+}
+p{
+    text-align:center;	
+}
+.content{
+    position:relative;
+	border:1px solid green ;
+	width:800px;
+	height:800px;	
+}
+/*多行文字水平垂直居中的一种方式，包含文字的div的position不能设置为absolute，父元素可以*/
+.centerout{
+      display:table;
+	  position:absolute;
+	  left:100px;
+	  top:10px;
+}
+.centerinner{
+      border:1px solid red;
+	  width:200px;
+	  height:200px;
+	  display:table-cell;
+	  vertical-align:middle;
+	  position:relative;
+}
+</style>
+</head>
+<body>
+<div class="content">
+<div class="box one"><p>1</p></div>
+<div class="box two"><p>2</p></div>
+<div class="box three"><p>3this must be in the center of the box</p></div>
+<div class="box four"><p>4</p></div>
+<div class="box five"><p>5</p></div></div>
+<div class="centerout">
+     <div class="centerinner"><p>this should be in the center</p></div>
+</div>
+</body>
+
+
+</html>
